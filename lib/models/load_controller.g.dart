@@ -30,7 +30,7 @@ class _SystemHash {
 }
 
 String _$AsyncLoadControllerHash() =>
-    r'112d723e7d93070fa5efd144de7a0abb8afa8e62';
+    r'09d40b0134e6c33f6aa1f6b79a1fce40d50499e5';
 
 /// See also [AsyncLoadController].
 final asyncLoadControllerProvider = AutoDisposeAsyncNotifierProvider<

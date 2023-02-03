@@ -31,7 +31,7 @@ class AsyncLoadController extends _$AsyncLoadController {
       final c = (cities as List<dynamic>).cast<String>();
 
       ref.read(currentCityProvider.notifier).changeCity(cc);
-      ref.read(citiesProvider.notifier).loadCitiesWithoutCaching(c);
+      ref.read(citiesProvider.notifier).loadCities(c);
 
       List<WeatherTimestamp> cl = cachedList.cast<WeatherTimestamp>();
       return cl;

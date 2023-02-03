@@ -12,6 +12,7 @@ class CityPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final cities = ref.watch(citiesProvider);
+    final currentCity = ref.watch(currentCityProvider);
     return Scaffold(
       appBar: AppBar(
           title: Container(
@@ -56,6 +57,7 @@ class CityPage extends ConsumerWidget {
               ref
                   .read(asyncLoadControllerProvider.notifier)
                   .updateWeather(skipCache: true);
+              ref.read(citiesProvider.notifier).updateCache(); //temp
               Navigator.of(context).pop();
             },
           )

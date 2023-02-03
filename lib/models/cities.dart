@@ -10,7 +10,7 @@ class Cities extends _$Cities {
     return ["Gomel", "Minsk", "Brest"];
   }
 
-  void loadCitiesWithoutCaching(List<String> cities) {
+  void loadCities(List<String> cities) {
     state = cities;
   }
 
