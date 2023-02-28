@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 //import 'package:deep_pick/deep_pick.dart';
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:simple_weather/models/api.dart';
 import 'package:simple_weather/entities/weather_timestamp.dart';
@@ -107,8 +109,17 @@ class AsyncLoadController extends _$AsyncLoadController {
     cacheBox.put("forecast", l);
   }
 
+  Future<void> _initDatabase() async {
+    await Hive.initFlutter("simple_weather");
+    Hive.registerAdapter(WeatherTimestampAdapter());
+    await Hive.openBox("cache");
+    await FastCachedImageConfig.init(
+        subDir: "simple_weather", clearCacheAfter: const Duration(days: 90));
+  }
+
   @override
   FutureOr<List<WeatherTimestamp>> build() async {
+    await _initDatabase(); //обязательно await
     return _loadWeatherInternal();
   }
 

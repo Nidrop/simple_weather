@@ -29,7 +29,7 @@ class _SystemHash {
   }
 }
 
-String _$CitiesHash() => r'e98ea9d1a07a88d8ff55eefea4c8ee4fd05f4d75';
+String _$CitiesHash() => r'7624475c9bb4fee63249feb721ff89f7a39ba150';
 
 /// See also [Cities].
 final citiesProvider = AutoDisposeNotifierProvider<Cities, List<String>>(
